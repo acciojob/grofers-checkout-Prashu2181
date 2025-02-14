@@ -4,26 +4,22 @@ document.body.appendChild(https://www.svgrepo.com/show/345221/three-dots.svggetS
 
 const getSum = () => {
 //Add your code here
-  let prices = document.querySelectorAll(".prices");
+  let prices = document.querySelectorAll(".price");
 
 	let total = 0;
 	price.forEach(price =>{
-		total += parseFloat(price.innerText);
-	})
-	let table =document.querySelector("table");
+		total += parseFloat(price.innerText) || 0;
+	});
+	const table =document.querySelector("table");
 
-	let existingTotalRow = document.getElementById("totalRow");
-		if(existingTotalRow){
-			existingTotalRow.remove();
-		}
-	let totalRow = document.createElement("tr");
-	totalRow.id = "totalRow";
+	const newRow = document.createElement("tr");
+	const totalCell = document.createElement("td");
 
-	let totalCell = document.createElement("td");
-	totalCell.colSpan = 2;
-	totalCell.innerText = `Total Price: ${total.toFixed(2)}`;
-
-	totalRow.appendChild(totalCell);
+	totalCell.setAttribute("colspan", "2");
+	totalCell.setAttribute("id", "ans");
+	totalCell.innerText = `Total Price: ${total}`;
+	
+	newRow.appendChild(totalCell);
 
 	table.appendChild(totalRow)
 };

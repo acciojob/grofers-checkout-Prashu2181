@@ -8,7 +8,7 @@ const getSum = () => {
 
     let total = 0;
     prices.forEach(price => {
-        total += Number(price.textContent.trim()); // Ensure numeric conversion
+        total += Number(price.textContent.trim()); 
     });
 
     // Remove existing total row if it exists
@@ -27,8 +27,8 @@ const getSum = () => {
     totalCell.colSpan = 2;
     totalCell.style.fontWeight = "bold";
     totalCell.style.textAlign = "center";
-    totalCell.id = "ans";  // ✅ Added id="ans" for Cypress test
-    totalCell.textContent = Total Price: Rs ${total};
+    totalCell.id = "ans";  
+    totalCell.textContent = `Total Price: Rs ${total}`;
 
     // Append cell to row and row to table
     newRow.appendChild(totalCell);
